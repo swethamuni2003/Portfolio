@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swetha G | Portfolio</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #2b1055, #7597de);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding: 80px 20px 50px;
+    }
+
+    .profile-pic {
+      width: 180px;
+      height: 180px;
+      border-radius: 0;
+      border: 5px solid #ffbde6;
+      box-shadow: 0 0 35px rgba(255, 189, 230, 0.6);
+      margin-bottom: 20px;
+      object-fit: cover;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .profile-pic:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 50px rgba(255, 214, 255, 0.8);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #ffe0f7;
+    }
+
+    header h1 span {
+      color: #ffd6ff;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #e7dbff;
+      max-width: 600px;
+      margin: 10px auto;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: rgba(255, 255, 255, 0.1);
+      text-align: center;
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+    }
+
+    nav a {
+      color: #ffe0f7;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #fff;
+      text-shadow: 0 0 10px #ffd6ff;
+    }
+
+    /* Sections */
+    section {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+
+    h2 {
+      font-weight: 700;
+      color: #ffd6ff;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #f2eaff;
+    }
+
+    /* About Section */
+    .about {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 30px;
+    }
+
+    .resume-btn {
+      display: inline-block;
+      margin-top: 20px;
+      background: #ffd6ff;
+      color: #2b1055;
+      padding: 10px 25px;
+      border-radius: 25px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .resume-btn:hover {
+      background: #fff;
+      transform: scale(1.05);
+    }
+
+    /* Video below About */
+    .about-video {
+      margin-top: 40px;
+    }
+
+    .about-video video {
+      width: 320px;
+      height: 180px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 214, 255, 0.4);
+    }
+
+    /* Projects */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 15px;
+      padding: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .project-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(255, 214, 255, 0.5);
+    }
+
+    .project-card img {
+      width: 70px;
+      margin-bottom: 10px;
+    }
+
+    .project-card h5 {
+      color: #ffd6ff;
+      font-weight: 600;
+    }
+
+    .view-btn {
+      display: inline-block;
+      margin-top: 10px;
+      background: #ffd6ff;
+      color: #2b1055;
+      padding: 6px 15px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .view-btn:hover {
+      transform: scale(1.05);
+      background: #fff;
+    }
+
+    /* Skills */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .skill {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 12px 25px;
+      border-radius: 25px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .skill:hover {
+      background: #ffd6ff;
+      color: #2b1055;
+    }
+
+    /* Contact */
+    form {
+      max-width: 600px;
+      margin: 30px auto;
+      text-align: left;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      margin-bottom: 15px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid #ffd6ff;
+      border-radius: 10px;
+      padding: 10px;
+      color: #fff;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #e7d9ff;
+    }
+
+    button {
+      background: #ffd6ff;
+      color: #2b1055;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: #e7d9ff;
+      background: rgba(255, 255, 255, 0.05);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Animation */
+    .fade-in {
+      animation: fadeIn 1s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="fade-in">
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <img src="pro 1.jpg" alt="Profile picture of Swetha G" class="profile-pic">
+      <h1>Hi, I'm <span>Swetha G</span></h1>
+      <p>A creative MCA student who loves designing vibrant, responsive, and user-focused web experiences that make a
+        lasting impact.</p>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- About Section -->
+  <section id="about" class="fade-in">
+    <h2>About Me</h2>
+    <div class="about">
+      <p>Hello! I'm <b>Swetha</b> from Tiruppur, currently pursuing my <b>MCA (1st Year)</b>.
+        I enjoy bringing ideas to life with clean design, simple interactions, and a touch of creativity.
+        My goal is to become a full-stack developer capable of merging design and development for powerful, meaningful
+        websites.</p>
+
+      <a href="swetha new resume.pdf" target="_blank" class="resume-btn">📄 View My Resume</a>
+
+      <!-- 🎥 Video placed BELOW About -->
+      <div class="about-video">
+        <h3 style="color:#ffd6ff;">🎬 My Introduction Video</h3>
+        <video controls>
+          <source src="swetha vidio.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="fade-in">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/992/992700.png" alt="Calculator Icon">
+        <h5>Simple Calculator</h5>
+        <p>A basic calculator built using HTML, CSS, and JavaScript.</p>
+        <a href="Calculated.html" target="_blank" class="view-btn">🔗 View Project</a>
+      </div>
+
+      <div class="project-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/1007/1007787.png" alt="Todo List Icon">
+        <h5>Todo List</h5>
+        <p>A task management app to organize your daily activities.</p>
+        <a href="todo_list.html" target="_blank" class="view-btn">🔗 View Project</a>
+      </div>
+
+      <div class="project-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3022/3022253.png" alt="Hanoi Tower Icon">
+        <h5>Hanoi Tower</h5>
+        <p>Recursive Tower of Hanoi visualizer.</p>
+        <a href="hanoi_tower.html" target="_blank" class="view-btn">🔗 View Project</a>
+      </div>
+
+      <div class="project-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3593/3593600.png" alt="Eye Tracker Icon">
+        <h5>Eye Tracker</h5>
+        <p>Eyes follow your cursor — built with JS.</p>
+        <a href="eye.html" target="_blank" class="view-btn">🔗 View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="fade-in">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">Bootstrap</div>
+      <div class="skill">MS PowerPoint</div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="fade-in">
+    <h2>Contact Me</h2>
+    <form action="mailto:youremail@example.com" method="post" enctype="text/plain">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="4" placeholder="Your Message"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <p>Connect with me:
+      <a href="https://github.com/swethamuni2003" target="_blank" style="color:#ffd6ff;">GitHub</a> |
+      <a href="https://instagram.com/bossy_girl_swee" target="_blank" style="color:#ffd6ff;">Instagram</a>
+    </p>
+  </section>
+
+  <footer>
+    © 2025 Swetha G
+  </footer>
+</body>
+</html>
